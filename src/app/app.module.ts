@@ -46,10 +46,17 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
@@ -90,9 +97,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
