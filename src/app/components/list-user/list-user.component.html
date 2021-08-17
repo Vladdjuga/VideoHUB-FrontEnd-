@@ -1,0 +1,8 @@
+<div>
+  
+</div>
+<mat-selection-list class="text-light" #shoes [multiple]="false">
+  <mat-list-option class="text-light" *ngFor="let opt of options" [value]="opt">
+    {{opt}}
+  </mat-list-option>
+</mat-selection-list>

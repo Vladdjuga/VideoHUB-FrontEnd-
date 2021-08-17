@@ -1,9 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 html, body{
     background-color: rgb(17, 17, 17);
+    color: whitesmoke;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-grad{
+    background: rgb(25,13,232);
+    background: linear-gradient(146deg, rgba(25,13,232,1) 0%, rgba(121,9,70,1) 100%);
+    color: white;
+    border: none;
+    width: 100%;
+}
+.btn-grad:hover{
+    color: rgba(255, 255, 255, 0.5);
+}
+.toolbar{
+    background: rgb(25,13,232);
+    background: linear-gradient(146deg, rgba(25,13,232,1) 0%, rgba(87,19,52,1) 44%, rgba(121,9,70,1) 94%);
+    color: whitesmoke;
+}

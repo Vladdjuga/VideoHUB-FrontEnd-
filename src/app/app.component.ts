@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'videoHub';
+  isOpened=false;
+  ngOnInit(){
+  }
+  show(){
+    this.isOpened=!this.isOpened;
+  }
 }

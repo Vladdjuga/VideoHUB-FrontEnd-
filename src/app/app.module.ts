@@ -52,13 +52,15 @@ import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { ListUserComponent } from './components/list-user/list-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     UsersListComponent,
-    LoginComponent
+    LoginComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserModule,
