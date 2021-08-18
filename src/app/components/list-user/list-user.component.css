@@ -1,0 +1,11 @@
+.div-icon{
+    text-align: center;
+    padding-top: 10px;
+}
+.img-icon{
+    width: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: #d53a9d;
+}
