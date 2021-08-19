@@ -56,6 +56,48 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { TokenInterceptor } from './helpers/interceptor';
 import { IsLoggedGuard } from './guards/islogged';
 import { IsntLoggedGuard } from './guards/isntlogged';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'left',
+			distance: 12
+		},
+		vertical: {
+			position: 'bottom',
+			distance: 12,
+			gap: 10
+		}
+	},
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 @NgModule({
   declarations: [
@@ -106,7 +148,8 @@ import { IsntLoggedGuard } from './guards/isntlogged';
     MatTableModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
