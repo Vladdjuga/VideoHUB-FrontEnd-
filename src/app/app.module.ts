@@ -49,10 +49,13 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UserService } from './services/user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
+import { TokenInterceptor } from './helpers/interceptor';
+import { IsLoggedGuard } from './guards/islogged';
+import { IsntLoggedGuard } from './guards/isntlogged';
 
 @NgModule({
   declarations: [
@@ -106,7 +109,14 @@ import { ListUserComponent } from './components/list-user/list-user.component';
     FormsModule
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    IsLoggedGuard,
+    IsntLoggedGuard
   ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

@@ -14,10 +14,13 @@
     <mat-icon>share</mat-icon>
   </button>
 
-  <div class="registerPart">
+  <div class="registerPart" *ngIf="activateNot.canActivate()">
    <div class="col-md-3 col-sm-3 col-xs-6"><a href="/register" class="btn-bl btn btn-sm animated-button victoria-one">Sign up</a></div>
    <div class="col-md-3 col-sm-3 col-xs-6"><a href="/login" class="btn-bl btn btn-sm animated-button victoria-two">Sign in</a></div>
  </div>
+ <div class="registerPart" *ngIf="activate.canActivate()">
+  <div class="col-md-3 col-sm-3 col-xs-6"><a href="#" (click)="logout()" class="btn-bl btn btn-sm animated-button victoria-one">Log out</a></div>
+</div>
 
  </mat-toolbar>
 

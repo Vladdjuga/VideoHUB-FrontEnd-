@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  profile=new User();
+  constructor() { 
+    const token = localStorage.getItem("token")
+    if (token != null) {
+      const jwtData = token.split('.')[1];
+      const decodedJwtJsonData = window.atob(jwtData);
+      const decodedJwtData = JSON.parse(decodedJwtJsonData);
+      if (decodedJwtData.sub != null) {
+        this.profile.name=decodedJwtData.name;
+        this.profile.icon=decodedJwtData.icon;
+      }
+    }
+  }
 
   ngOnInit() {
   }
