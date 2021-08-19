@@ -13,4 +13,6 @@ export class AppComponent {
   show(){
     this.isOpened=!this.isOpened;
   }
+
+  
 }
