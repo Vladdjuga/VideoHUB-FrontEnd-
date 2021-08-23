@@ -1,8 +1,8 @@
 <div class="div-icon">
-    <img class="img-icon" src="https://yeinjee.com/wp-content/uploads/2014/07/non-non-biyori-1.gif">
+  <img class="img-icon" src="http://localhost:8080/user/files/def.png">
 </div>
 <mat-selection-list class="text-light" #shoes [multiple]="false">
-  <mat-list-option class="text-light" *ngFor="let opt of options" [value]="opt">
-    {{opt}}
-  </mat-list-option>
+<mat-list-option (click)="link(opt.link)" class="text-light" *ngFor="let opt of options" [value]="opt">  
+  {{opt.name}}
+</mat-list-option>
 </mat-selection-list>

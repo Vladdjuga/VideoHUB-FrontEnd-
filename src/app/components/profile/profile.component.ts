@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -9,7 +10,7 @@ import { User } from 'src/app/models/user';
 export class ProfileComponent implements OnInit {
 
   profile=new User();
-  constructor() { 
+  constructor(private ngxService: NgxUiLoaderService) { 
     const token = localStorage.getItem("token")
     if (token != null) {
       const jwtData = token.split('.')[1];
@@ -23,6 +24,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ngxService.start();
+    setTimeout(() => {
+      this.ngxService.stop();
+    }, 1000);
   }
 
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,6 +57,7 @@ import { TokenInterceptor } from './helpers/interceptor';
 import { IsLoggedGuard } from './guards/islogged';
 import { IsntLoggedGuard } from './guards/isntlogged';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -149,7 +150,8 @@ const customNotifierOptions: NotifierOptions = {
     MatIconModule,
     HttpClientModule,
     FormsModule,
-    NotifierModule.withConfig(customNotifierOptions)
+    NotifierModule.withConfig(customNotifierOptions),
+    NgxUiLoaderModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
@@ -162,6 +164,6 @@ const customNotifierOptions: NotifierOptions = {
     IsntLoggedGuard
   ],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
