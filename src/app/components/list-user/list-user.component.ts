@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-list-user',
@@ -6,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
-  options=["Мой канал","Подписки","Понравившиеся видео","История","Настройки"];
+  options=[{name:"Мой канал",link:"/profile"},
+  {name:"Подписки",link:"/subscribtions"},
+  {name:"Понравившиеся видео",link:"/liked-videos"},
+  {name:"История",link:"/history"},
+  {name:"Настройки",link:"/settings"}];
 
-  constructor() { }
+  profile=new User();
+  constructor(private router:Router) { 
+    const token = localStorage.getItem("token")
+    if (token != null) {
+      const jwtData = token.split('.')[1];
+      const decodedJwtJsonData = window.atob(jwtData);
+      const decodedJwtData = JSON.parse(decodedJwtJsonData);
+      if (decodedJwtData.sub != null) {
+        this.profile.name=decodedJwtData.name;
+        this.profile.icon=decodedJwtData.icon;
+      }
+    }
+  }
+
+  link(link:string){
+    this.router.navigate([link]);
+  }
 
   ngOnInit() {
   }

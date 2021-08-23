@@ -57,6 +57,7 @@ import { TokenInterceptor } from './helpers/interceptor';
 import { IsLoggedGuard } from './guards/islogged';
 import { IsntLoggedGuard } from './guards/isntlogged';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+//import { NgxSpinnerModule } from 'ngx-spinner';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -149,6 +150,7 @@ const customNotifierOptions: NotifierOptions = {
     MatIconModule,
     HttpClientModule,
     FormsModule,
+    //NgxSpinnerModule,
     NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [
