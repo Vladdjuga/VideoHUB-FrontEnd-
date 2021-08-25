@@ -1,0 +1,53 @@
+.m-10{
+    margin: 5% 10%;
+    text-align: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.t-title{
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.m-c{
+    background-image: url(https://www.bootdey.com/img/Content/bg1.jpg);
+}
+
+.my{
+  background-color: rgba(255, 255, 255, 0);
+}
+
+image-cropper {
+    max-height: 33vh;
+  }
+  
+  .cropper-wrapper {
+    min-height: 300px;
+    min-width: 300px;
+
+    max-height: 700px;
+    max-width: 700px;
+  }
+  
+  .loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+  }
+
+  button{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: transparent;
+    color:black
+  }

@@ -1,0 +1,45 @@
+<div class="align-div">
+  <mat-card class="bg-dark m-10">
+    <h1 class="t-title">REGISTER</h1>
+    <form class="m-5 text-light">
+      <div class="div-icon">
+        <img class="img-icon" (click)="openModal(croppe)" src="http://localhost:8080/user/files/image.png">
+      </div>
+      <div class="form-group mb-2">
+        <label for="nameInp">Name</label>
+        <input type="text"  name="name" class="form-control bg-dark text-light" id="nameInp" placeholder="Enter name">
+      </div>
+      <div class="form-group mb-2">
+        <label for="passInp">Password</label>
+        <input type="password"  name="password" class="form-control bg-dark text-light" id="passInp" placeholder="Enter password">
+      </div>
+      <button (click)="signUp()" type="submit" class="btn btn-grad mt-5">REGISTER</button>
+    </form>
+  </mat-card>
+
+  <ng-template #croppe let-modal>
+    <div class="m-c">
+      <input type="file" (change)="fileChangeEvent($event)" />
+  
+      <div class="cropper-wrapper">
+        <div class="row" style="margin-top: 15px;">
+          <div class="text-center col-md-8">
+            <image-cropper [imageChangedEvent]="imageChangedEvent" [imageURL]="imageURL" [maintainAspectRatio]="true"
+              [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="1 / 1" [resizeToWidth]="128"
+              [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false" [canvasRotation]="canvasRotation"
+              [transform]="transform" [alignImage]="'center'" [style.display]="showCropper ? null : 'none'" format="png"
+              (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady($event)"
+              (loadImageFailed)="loadImageFailed()"></image-cropper>
+          </div>
+          <div class="text-center col-md-4">
+            <h5>Preview</h5>
+            <img [src]="croppedImage" />
+          </div>
+        </div>
+        <div><button (click)="uploadPhoto()">Upload</button></div>
+        <div *ngIf="loading" class="loader">Loading...</div>
+      </div>
+  
+    </div>
+  </ng-template>
+  </div>

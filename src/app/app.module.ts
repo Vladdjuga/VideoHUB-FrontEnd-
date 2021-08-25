@@ -58,6 +58,9 @@ import { IsLoggedGuard } from './guards/islogged';
 import { IsntLoggedGuard } from './guards/isntlogged';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { RegisterComponent } from './components/register/register.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -106,7 +109,8 @@ const customNotifierOptions: NotifierOptions = {
     ProfileComponent,
     UsersListComponent,
     LoginComponent,
-    ListUserComponent
+    ListUserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +155,9 @@ const customNotifierOptions: NotifierOptions = {
     HttpClientModule,
     FormsModule,
     NotifierModule.withConfig(customNotifierOptions),
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    ImageCropperModule,
+    NgbModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
