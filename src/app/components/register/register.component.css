@@ -44,10 +44,7 @@ image-cropper {
     font-size: 20px;
     color: white;
   }
-
-  button{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: transparent;
-    color:black
+  option{
+    border-radius: 15px;
+    padding: 5%;
   }

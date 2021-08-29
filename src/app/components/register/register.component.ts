@@ -5,6 +5,8 @@ import { Claim } from 'src/app/models/claim';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Dimensions, ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
+import { RegisterRequest } from 'src/app/models/registerrequest';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-register',
@@ -13,20 +15,19 @@ import { Dimensions, ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper
 })
 export class RegisterComponent implements OnInit {
 
-  signin=new AuthRequest("","");
+  signup=new RegisterRequest();
   constructor(private service:AuthService,private router:Router,
-    private modalService: NgbModal){
+    private modalService: NgbModal,private notifier:NotifierService){
     
   }
 
   ngOnInit() {
   }
   signUp(){
-      this.service.login(this.signin).subscribe((res:Claim)=>{
-        if(res.name!=null){
-          localStorage.setItem("token",res.name);
-          this.router.navigate(["/profile"]);
-        }
+    console.log(this.signup)
+      this.service.register(this.signup).subscribe((res:Claim)=>{
+          this.notifier.notify("success","Registration completed!")
+          this.router.navigate(["/login"]);
       })
   }
 

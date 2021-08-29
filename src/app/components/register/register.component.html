@@ -2,16 +2,41 @@
   <mat-card class="bg-dark m-10">
     <h1 class="t-title">REGISTER</h1>
     <form class="m-5 text-light">
-      <div class="div-icon">
+      <!-- <div class="div-icon">
         <img class="img-icon" (click)="openModal(croppe)" src="http://localhost:8080/user/files/image.png">
-      </div>
+      </div> -->
       <div class="form-group mb-2">
         <label for="nameInp">Name</label>
-        <input type="text"  name="name" class="form-control bg-dark text-light" id="nameInp" placeholder="Enter name">
+        <input type="text" [(ngModel)]="signup.name" name="name" class="form-control bg-dark text-light" id="nameInp"
+          placeholder="Enter name">
       </div>
       <div class="form-group mb-2">
         <label for="passInp">Password</label>
-        <input type="password"  name="password" class="form-control bg-dark text-light" id="passInp" placeholder="Enter password">
+        <input type="password" [(ngModel)]="signup.password" name="password" class="form-control bg-dark text-light"
+          id="passInp" placeholder="Enter password">
+      </div>
+      <div class="form-group mb-2">
+        <label for="passInp">Re-enter password</label>
+        <input type="password" [(ngModel)]="signup.re_password" name="re_password"
+          class="form-control bg-dark text-light" id="passInp" placeholder="Re-enter password">
+      </div>
+      <div class="form-group mb-2">
+        <label for="passInp">Phone</label>
+        <input type="tel" [(ngModel)]="signup.phone" name="phone" class="form-control bg-dark text-light" id="passInp"
+          placeholder="Enter your phone number">
+      </div>
+      <div class="form-group mb-2">
+        <label for="passInp">Birthday date</label>
+        <input type="date" [(ngModel)]="signup.birthday" min="1920-01-01" max="2007-01-01" name="birthday"
+          class="form-control bg-dark text-light" id="passInp" placeholder="Enter your birthday date">
+      </div>
+      <div class="form-group mb-2">
+        <label for="passInp">Gender</label>
+        <select id="passInp" [(ngModel)]="signup.gender" name="gender" class="form-select bg-dark text-light"
+          aria-label="Select your gender...">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
       </div>
       <button (click)="signUp()" type="submit" class="btn btn-grad mt-5">REGISTER</button>
     </form>
@@ -20,7 +45,7 @@
   <ng-template #croppe let-modal>
     <div class="m-c">
       <input type="file" (change)="fileChangeEvent($event)" />
-  
+
       <div class="cropper-wrapper">
         <div class="row" style="margin-top: 15px;">
           <div class="text-center col-md-8">
@@ -39,7 +64,7 @@
         <div><button (click)="uploadPhoto()">Upload</button></div>
         <div *ngIf="loading" class="loader">Loading...</div>
       </div>
-  
+
     </div>
   </ng-template>
-  </div>
+</div>
