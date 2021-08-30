@@ -678,14 +678,11 @@ body {
 
 .subscriptions{
     width: 100%; 
-    display: flex;
-    flex-direction: row;
     background-color: rgba(0, 0, 0, 0.2);     
 }
 
 
 .card {
-    width: 400px;
     border: none;
     border-radius: 10px;
     background-color: #fff
@@ -710,10 +707,16 @@ body {
     color: #a1aab9
 }
 
-.subPart{
+.mainPart{
+    display: inline;
+    float: left;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
     width: 50%;
-    margin: 10px;
+}
 
+.subPart{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
