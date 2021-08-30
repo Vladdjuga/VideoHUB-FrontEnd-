@@ -646,7 +646,7 @@ select.form-control:not([size]):not([multiple]) {
 
 
 .profile-head {
-    transform: translateY(5rem)
+    transform: translateY(5rem);
 }
 
 .cover {
@@ -674,4 +674,47 @@ body {
 
 .over{
     overflow: hidden;
+}
+
+.subscriptions{
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.2);     
+}
+
+
+.card {
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff
+}
+
+.stats {
+    background: #f2f5f8 !important;
+    color: #000 !important
+}
+
+.articles {
+    font-size: 10px;
+    color: #a1aab9
+}
+
+.number1 {
+    font-weight: 500
+}
+
+.followers {
+    font-size: 10px;
+    color: #a1aab9
+}
+
+.subPart{
+    width: 50%;
+    margin: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
