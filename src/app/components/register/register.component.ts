@@ -24,11 +24,37 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   signUp(){
+    if(this.signup.name== "")
+    {
+      this.notifier.notify("warning","Name required")
+    }
+    else if(this.signup.phone== "")
+    {
+      this.notifier.notify("warning","Phone required")
+    }
+    else if(this.signup.gender== "")
+    {
+      this.notifier.notify("warning","Gender required")
+    }
+    else if(this.signup.password== "")
+    {
+      this.notifier.notify("warning","Password required")
+    }
+    else if(this.signup.re_password== "")
+    {
+      this.notifier.notify("warning","Re_Password required")
+    }
+    else if(this.signup.password != this.signup.re_password)
+    {
+      this.notifier.notify("warning","Passwords do not match")
+    }
+    else{
     console.log(this.signup)
       this.service.register(this.signup).subscribe((res:Claim)=>{
           this.notifier.notify("success","Registration completed!")
           this.router.navigate(["/login"]);
       })
+    }
   }
 
   
