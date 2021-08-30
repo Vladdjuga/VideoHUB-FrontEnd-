@@ -685,7 +685,8 @@ body {
 .card {
     border: none;
     border-radius: 10px;
-    background-color: #fff
+    background-color: #fff;
+    width: 350px;    
 }
 
 .stats {
@@ -710,9 +711,12 @@ body {
 .mainPart{
     display: inline;
     float: left;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    width: 50%;
+    margin-top: 1%;
+    width: 49%;
+    margin-left: 1%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
 }
 
 .subPart{
