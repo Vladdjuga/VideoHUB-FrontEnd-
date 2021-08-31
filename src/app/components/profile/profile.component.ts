@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import { User } from 'src/app/models/user';
 export class ProfileComponent implements OnInit {
 
   profile=new User();
-  constructor(private ngxService: NgxUiLoaderService) { 
+  constructor(private ngxService: NgxUiLoaderService, private router:Router) { 
     const token = localStorage.getItem("token")
     if (token != null) {
       const jwtData = token.split('.')[1];
@@ -21,6 +22,10 @@ export class ProfileComponent implements OnInit {
         this.profile.icon=decodedJwtData.icon;
       }
     }
+  }
+
+  Edit(){    
+    this.router.navigate(["/profile-edit"]);
   }
 
   ngOnInit() {
