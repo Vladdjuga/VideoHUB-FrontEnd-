@@ -96,5 +96,16 @@
 
 .marFirst{
     margin-left: 5%;
-    margin-top: 2.5%;
+    margin-top: 2%;
+}
+
+.changes{
+    margin-top: 5%;
+    text-align: center;
+    width: 55%;
+}
+
+.marSecond{
+    margin: 0; 
+    padding: 0;
 }
