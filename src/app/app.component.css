@@ -1,5 +1,5 @@
 .example-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -43,7 +43,7 @@ h2 {
 }
 /* Global Button Styles */
 a.animated-button:link, a.animated-button:visited {
-	position: relative;
+	position: fixed;
 	display: block;
     margin-right: 1%;
 	font-size:14px;
@@ -83,7 +83,7 @@ a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
 	height: 250%;
 }
 a.animated-button:link, a.animated-button:visited {
-	position: relative;
+	position: sticky;
 	display: block;
 	font-size:14px;
 	border-radius: 0;
@@ -129,43 +129,49 @@ a.animated-button.victoria-two:after {
 
 .registerPart{
 float: left;
-width: 25%;
-margin-left: 79%;
+width: 100%;
+margin-right: 2%;
+margin-left: 60%;
 
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: flex-end;
 flex-direction: row;
 
+<<<<<<< Updated upstream
 position: fixed;
+=======
+
+position: sticky;
+>>>>>>> Stashed changes
 z-index: 1;
 outline: 0;
 }
 
 @media(max-width: 1400px){
 	.registerPart{
-		margin-left: 77%;
+		margin-left: 58%;
 		width: 28%;
 	}
 }
 
 @media(max-width: 1200px){
 	.registerPart{
-		margin-left: 74%;
+		margin-left: 53%;
 		width: 31%;
 	}
 }
 
 @media(max-width: 1000px){
 	.registerPart{
-		margin-left: 71%;
+		margin-left: 50%;
 		width: 34%;
 	}
 }
 
 @media(max-width: 900px){
 	.registerPart{
-		margin-left: 70%;
+		margin-left: 48%;
 		width: 36%;
 	}
 }
