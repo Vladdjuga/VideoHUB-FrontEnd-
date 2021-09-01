@@ -20,7 +20,6 @@ export class VideoPageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.service.getById(this.id as number).subscribe((res:Video)=>{
-      console.log(res);
       this.video=res;
     })
   }
