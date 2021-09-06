@@ -62,6 +62,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VideoPageComponent } from './components/video-page/video-page.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -112,7 +114,9 @@ const customNotifierOptions: NotifierOptions = {
     LoginComponent,
     ListUserComponent,
     RegisterComponent,
-    VideoPageComponent
+    VideoPageComponent,
+    ErrorPageComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

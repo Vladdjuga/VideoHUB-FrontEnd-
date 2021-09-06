@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent,canActivate:[IsntLoggedGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'video/:id', component: VideoPageComponent},
-  { path: 'profile-edit', component: ProfileEditComponent}
+  { path: 'profile-edit', component: ProfileEditComponent},
+  { path: 'error-page', component: ErrorPageComponent}
+
 ];
 
 @NgModule({
