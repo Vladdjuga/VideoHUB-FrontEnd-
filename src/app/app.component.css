@@ -137,13 +137,8 @@ display: flex;
 align-items: center;
 justify-content: flex-end;
 flex-direction: row;
-
-<<<<<<< Updated upstream
 position: fixed;
-=======
-
 position: sticky;
->>>>>>> Stashed changes
 z-index: 1;
 outline: 0;
 }

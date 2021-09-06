@@ -4,6 +4,7 @@ body{
 }
 
 .profile-header {
+    min-height: 100%;
     position: relative;
     overflow: hidden
 }
@@ -685,13 +686,13 @@ body {
 .card {
     border: none;
     border-radius: 10px;
-    background-color: #fff;
-    width: 350px;    
+    background-color: rgb(0, 0, 0, 0.5);
+    width: 400px;    
 }
 
 .stats {
-    background: #f2f5f8 !important;
-    color: #000 !important
+    background: rgb(0, 0, 0, 0.5) !important;
+    color: rgb(255, 255, 255) !important
 }
 
 .articles {
@@ -712,9 +713,6 @@ body {
     display: inline;
     float: left;
     width: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-
 }
 
 .subPart{
@@ -724,4 +722,37 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.about{
+    width: 100%; 
+}
+
+.inner-about{
+    margin-left: 15%;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    width: 70%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.main-t-about{
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: whitesmoke;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
+}
+
+.info-second{
+    font-size: 18px;
+    color: whitesmoke;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-top: 15px;
+}
+
+mat-tab-group{
+   min-height: 750px;
 }
