@@ -25,6 +25,10 @@
     margin-top: 1.5%;
 }
 
+.mat-tab-group{
+height: 100%;
+}
+
 .marg{
     height: 90%;
     margin-left: 5%;
@@ -38,11 +42,14 @@
 
 
 .scroll-div{
+    margin-left: -5%;
     height: 81%;
 }
 
 .comments{
-    height: 100%;
+    height: 560px;
+    overflow-y: auto;
+    white-space: nowrap;
 }
 
 .comments::-webkit-scrollbar {
@@ -52,7 +59,7 @@
   
   .comments::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #18aaaa;
+    background-color: rgba(121,9,70,1);
   }
   
   .comments::-webkit-scrollbar-track {
