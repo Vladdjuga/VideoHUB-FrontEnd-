@@ -18,33 +18,37 @@
   </div>
   <div class="col-lg-4">
     <div class="container rec-div scroll-div">
-      <div class="row">
-        <div class="col-md-12">
+      <div class="row" style="height: 100%;">
+        <div class="col-md-12"  style="height: 100%;">
           <div id="content" class="content content-full-width">
             <div class="profile">
               <div class="profile-header">
-                <mat-tab-group class="bg-dark">
+                <mat-tab-group class="bg-dark" style="height: 100%;">
                   <mat-tab label="COMMENTS" >
                     <div class="tab-content p-0">
                       <div class="tab-pane fade active show" id="profile-post">
-                        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-                          <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-                            <button mat-icon-button disabled></button>
-                            {{node.item}}
-                          </mat-tree-node>
-                          <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-                            <button mat-icon-button
-                                    [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
-                              <mat-icon class="mat-icon-rtl-mirror">
-                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                              </mat-icon>
-                            </button>
-                            {{node.item}}
-                            <mat-progress-bar *ngIf="node.isLoading"
-                                              mode="indeterminate"
-                                              class="example-tree-progress-bar"></mat-progress-bar>
-                          </mat-tree-node>
-                        </mat-tree>
+                        <div class="text-light comments">
+                          <mat-tree class="bg-dark text-light" [dataSource]="dataSource" [treeControl]="treeControl">
+                            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                              <button mat-icon-button disabled></button>
+                              {{node.item}}
+                            </mat-tree-node>
+                            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+                              <button mat-icon-button [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+                                <mat-icon class="mat-icon-rtl-mirror">
+                                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                </mat-icon>
+                              </button>
+                              {{node.item}}
+                              <mat-progress-bar *ngIf="node.isLoading" mode="indeterminate" class="example-tree-progress-bar">
+                              </mat-progress-bar>
+                            </mat-tree-node>
+                          </mat-tree>
+                        </div>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Comment</mat-label>
+                            <input matInput>
+                          </mat-form-field>
                       </div>
                     </div>
                   </mat-tab>
@@ -52,7 +56,7 @@
                     <div class="over tab-content p-0">               
                       <div class="over row py-5 px-4">
                         <div class="over col-md-10">
-                          <div class=" text-light">
+                          <div class=" text-light comments">
                             <!-- <div *ngFor="let v of videos; let i = index">
                                     <div>
                                         <img src="http://localhost:8080/video/files/{{v.preview}}" width="280" height="140" />
@@ -88,202 +92,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="col-lg-4 mt-5 comments ">
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            Accordion Item #2
-          </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-            filled with some actual content.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-            Accordion Item #3
-          </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
-            happening here in terms of content, but just filling up the space to make it look, at least at first glance,
-            a bit more representative of how this would look in a real-world application.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            Accordion Item #2
-          </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-            filled with some actual content.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-            Accordion Item #3
-          </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
-            happening here in terms of content, but just filling up the space to make it look, at least at first glance,
-            a bit more representative of how this would look in a real-world application.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            Accordion Item #2
-          </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-            filled with some actual content.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-            Accordion Item #3
-          </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
-            happening here in terms of content, but just filling up the space to make it look, at least at first glance,
-            a bit more representative of how this would look in a real-world application.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            Accordion Item #1
-          </button>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            Accordion Item #2
-          </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-            filled with some actual content.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-            Accordion Item #3
-          </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-            <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting
-            happening here in terms of content, but just filling up the space to make it look, at least at first glance,
-            a bit more representative of how this would look in a real-world application.</div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="col-lg-2 text-light">
-    <div *ngFor="let v of videos; let i = index">
-            <div>
-                <img src="http://localhost:8080/video/files/{{v.preview}}" width="280" height="140" />
-                <h3>{{v.title}}</h3>
-                <h5>{{v.description}}</h5>
-            </div>
-        </div>
-    <div class=" rec-div">
-      <h3>Recomendation</h3>
-      <div>
-        <img src="{{video.preview}}" width="260" height="140" />
-        <h5>title</h5>
-      </div>
-      <div>
-        <img src="https://cs7.pikabu.ru/post_img/big/2019/08/03/5/1564817034127071355.jpg" width="260" height="140" />
-        <p>title</p>
-      </div>
-      <div>
-        <img src="https://cs7.pikabu.ru/post_img/big/2019/08/03/5/1564817034127071355.jpg" width="260" height="140" />
-        <p>title</p>
-      </div>
-    </div>
-  </div> -->
+  
 </div>
 <!-- http://localhost:8080/video/files/1.mp4 -->
 <!-- https://r220109.kujo-jotaro.com/fullmetal-alchemist/1.480.6dd71aa1e6101db1.mp4?hash1=b3ec7c4bfc156f04318fcbb4f9f89061&hash2=b1ec43ae18e937cebfc2c5b13056e46d -->
