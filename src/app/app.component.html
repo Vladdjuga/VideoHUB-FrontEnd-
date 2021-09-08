@@ -1,33 +1,35 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav class="bg-dark" *ngIf="isOpened" mode="side" opened><app-list-user></app-list-user></mat-sidenav>
+  <mat-sidenav class="bg-dark" *ngIf="isOpened" mode="side" opened>
+    <app-list-user></app-list-user>
+  </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar class="toolbar">
-    <button (click)="show()" mat-icon-button class="example-icon">
-     <mat-icon>menu</mat-icon>
-   </button>
-   <span>VideoHUB</span>
-   <span class="example-spacer"></span>
-   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-     <mat-icon>favorite</mat-icon>
-   </button>
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
+      <button (click)="show()" mat-icon-button class="example-icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>VideoHUB</span>
+      <form class="example-form mt-2 ml-2">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input (change)="changeText()" [(ngModel)]="search" matInput placeholder="Search...">
+        </mat-form-field>
+      </form>
+      <div class="registerPart" *ngIf="activateNot.canActivate()">
+        <div class="col-md-3 col-sm-3 col-xs-6" style="padding: 0;"><a href="/register"
+            class="btn-bl btn btn-sm animated-button victoria-one">Sign up</a></div>
+        <div class="col-md-3 col-sm-3 col-xs-6" style="padding: 0;"><a href="/login"
+            class="btn-bl btn btn-sm animated-button victoria-two">Sign in</a></div>
+      </div>
+      <div class="registerPart" *ngIf="activate.canActivate()">
+        <div class="col-md-3 col-sm-3 col-xs-6"><a href="#" (click)="logout()"
+            class="btn-bl btn btn-sm animated-button victoria-one">Log out</a></div>
+      </div>
 
-  <div class="registerPart" *ngIf="activateNot.canActivate()">
-   <div class="col-md-3 col-sm-3 col-xs-6" style="padding: 0;"><a href="/register" class="btn-bl btn btn-sm animated-button victoria-one">Sign up</a></div>
-   <div class="col-md-3 col-sm-3 col-xs-6" style="padding: 0;"><a href="/login" class="btn-bl btn btn-sm animated-button victoria-two">Sign in</a></div>
- </div>
- <div class="registerPart" *ngIf="activate.canActivate()">
-  <div class="col-md-3 col-sm-3 col-xs-6"><a href="#" (click)="logout()" class="btn-bl btn btn-sm animated-button victoria-one">Log out</a></div>
-</div>
-
- </mat-toolbar>
+    </mat-toolbar>
 
 
-<router-outlet></router-outlet>
-<ngx-ui-loader></ngx-ui-loader>
-<notifier-container></notifier-container>
+    <router-outlet></router-outlet>
+    <ngx-ui-loader></ngx-ui-loader>
+    <notifier-container></notifier-container>
 
-</mat-sidenav-content>
+  </mat-sidenav-content>
 </mat-sidenav-container>

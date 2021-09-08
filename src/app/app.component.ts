@@ -3,6 +3,7 @@ import { IsLoggedGuard } from './guards/islogged';
 import { IsntLoggedGuard } from './guards/isntlogged';
 import { NotifierService } from 'angular-notifier';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,10 @@ export class AppComponent {
   activate:IsLoggedGuard=new IsLoggedGuard();
   activateNot:IsntLoggedGuard=new IsntLoggedGuard();
   
-  constructor(private notifierService: NotifierService,private ngxService: NgxUiLoaderService){
+  options=[];
+  search="";
+
+  constructor(private notifierService: NotifierService,private ngxService: NgxUiLoaderService, private router:Router){
     
   }
   ngOnInit(){
@@ -31,6 +35,9 @@ export class AppComponent {
   }
   logout(){
     localStorage.removeItem('token');
+  }
+  changeText(){
+    this.router.navigate([`/search/${this.search}`]);
   }
   
 }
