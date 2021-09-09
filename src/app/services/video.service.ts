@@ -8,9 +8,10 @@ import { Video } from '../models/video';
 })
 export class VideoService {
 
-constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-getById(id:number):Observable<any>{
-  return this.http.get<any>(`http://localhost:8080/video/get/${id}`);
-}
+  getById(id: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/video/get/${id}`);
+  }
+  
 }
