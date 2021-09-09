@@ -32,11 +32,8 @@ export class VideoPageComponent implements OnInit {
        this.video=res;
      })
 
-    console.log("Video --><--");
-
     this.commentservice.getMainComments(this.id as number).subscribe((res:any)=>{
       console.log("Video id = " + this.id);
-      console.log("Main comments ->");
       console.log(res);
       this.comments = res;
     })
