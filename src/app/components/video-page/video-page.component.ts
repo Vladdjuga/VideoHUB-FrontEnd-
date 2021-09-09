@@ -7,6 +7,7 @@ import {CollectionViewer, SelectionChange, DataSource} from '@angular/cdk/collec
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {BehaviorSubject, merge, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import { User } from 'src/app/models/user';
 
 /** Flat node with expandable and level information */
 export class DynamicFlatNode {
@@ -131,10 +132,23 @@ export class VideoPageComponent implements OnInit {
 
   id: number | undefined;
   video:Video=new Video();
+  likes=0;
   videos:Array<Video>= new Array<Video>();
+  profile=new User();
+  isLiked=false;
   private subscription: Subscription;
   constructor(private activateRoute: ActivatedRoute,private service:VideoService,database: DynamicDatabase) {
-    
+    const token = localStorage.getItem("token")
+    if (token != null) {
+      const jwtData = token.split('.')[1];
+      const decodedJwtJsonData = window.atob(jwtData);
+      const decodedJwtData = JSON.parse(decodedJwtJsonData);
+      if (decodedJwtData.sub != null) {
+        this.profile.name=decodedJwtData.name;
+        this.profile.icon=decodedJwtData.icon;
+      }
+    }
+
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
 
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
@@ -157,5 +171,17 @@ export class VideoPageComponent implements OnInit {
     this.service.getById(this.id as number).subscribe((res:Video)=>{
       this.video=res;
     })
+    this.service.getLikes(this.id as number).subscribe((res:number)=>{
+      this.likes=res;
+    })
+    this.service.isLiked(this.id as number,this.profile.name).subscribe((res:boolean)=>{
+      this.isLiked=res;
+    });
+  }
+  like(){
+    this.service.addLike(this.id as number,this.profile.name).subscribe((res:number)=>{
+      this.likes=res;
+      this.isLiked=true;
+    });
   }
 }
