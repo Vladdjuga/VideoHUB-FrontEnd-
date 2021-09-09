@@ -120,6 +120,7 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
 /**
  * @title Tree with dynamic data
  */
+import { CommentService } from 'src/app/services/comment.service';
 
 @Component({
   selector: 'app-video-page',
@@ -128,8 +129,6 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
 })
 export class VideoPageComponent implements OnInit {
 
-
-
   id: number | undefined;
   video:Video=new Video();
   likes=0;
@@ -137,7 +136,7 @@ export class VideoPageComponent implements OnInit {
   profile=new User();
   isLiked=false;
   private subscription: Subscription;
-  constructor(private activateRoute: ActivatedRoute,private service:VideoService,database: DynamicDatabase) {
+  constructor(private activateRoute: ActivatedRoute,private service:VideoService, private commentservice:CommentService) {
     const token = localStorage.getItem("token")
     if (token != null) {
       const jwtData = token.split('.')[1];
@@ -150,26 +149,20 @@ export class VideoPageComponent implements OnInit {
     }
 
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
-
-    this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
-    this.dataSource = new DynamicDataSource(this.treeControl, database);
-
-    this.dataSource.data = database.initialData();
   }
-
-  treeControl: FlatTreeControl<DynamicFlatNode>;
-
-  dataSource: DynamicDataSource;
-
-  getLevel = (node: DynamicFlatNode) => node.level;
-
-  isExpandable = (node: DynamicFlatNode) => node.expandable;
-
-  hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
-
+  comments: Array<Comment>=new Array<Comment>();
   ngOnInit(): void {
-    this.service.getById(this.id as number).subscribe((res:Video)=>{
-      this.video=res;
+     this.service.getById(this.id as number).subscribe((res:Video)=>{
+       this.video=res;
+     })
+
+    console.log("Video --><--");
+
+    this.commentservice.getMainComments(this.id as number).subscribe((res:any)=>{
+      console.log("Video id = " + this.id);
+      console.log("Main comments ->");
+      console.log(res);
+      this.comments = res;
     })
     this.service.getLikes(this.id as number).subscribe((res:number)=>{
       this.likes=res;
@@ -183,5 +176,6 @@ export class VideoPageComponent implements OnInit {
       this.likes=res;
       this.isLiked=true;
     });
+
   }
 }
