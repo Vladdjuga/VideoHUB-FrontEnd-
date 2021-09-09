@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterRequest } from 'src/app/models/registerrequest';
 
 @Component({
   selector: 'app-profile-edit',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileEditComponent implements OnInit {
 
+  
+  signup=new RegisterRequest();
   ngOnInit(): void {
   }
 }
