@@ -2,7 +2,7 @@
 <div class="marg row">
   <div class="col-lg-8 text-light">
     <div class=" video-div">
-      <video src="http://localhost:8080/video/files/{{video.src}}" width="1280" height="720" controls autoplay>
+      <video src="http://localhost:8080/video/files/{{video.src}}" width="920" height="600" controls autoplay>
       </video>
 
     </div>
@@ -66,28 +66,14 @@
                       <div class="over row py-5 px-4">
                         <div class="over col-md-10">
                           <div class=" text-light comments">
-                            <!-- <div *ngFor="let v of videos; let i = index">
-                                    <div>
-                                        <img src="http://localhost:8080/video/files/{{v.preview}}" width="280" height="140" />
-                                        <h3>{{v.title}}</h3>
-                                        <h5>{{v.description}}</h5>
-                                    </div>
-                                </div> -->
                             <div>
-                              <div>
-                                <img src="{{video.preview}}" width="260" height="140" />
-                                <h5>title</h5>
+                              <ng-template ngFor let-item [ngForOf]="videos">
+                                <div>
+                                  <img src="http://localhost:8080/video/files/{{item.preview}}" width="280" height="140" />
+                                  <h3>{{item.title}}</h3>
+                                  <h5>{{item.description}}</h5>
                               </div>
-                              <div>
-                                <img src="https://cs7.pikabu.ru/post_img/big/2019/08/03/5/1564817034127071355.jpg"
-                                  width="260" height="140" />
-                                <p>title</p>
-                              </div>
-                              <div>
-                                <img src="https://cs7.pikabu.ru/post_img/big/2019/08/03/5/1564817034127071355.jpg"
-                                  width="260" height="140" />
-                                <p>title</p>
-                              </div>
+                            </ng-template>
                             </div>
                           </div>
                         </div>

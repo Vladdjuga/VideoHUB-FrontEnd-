@@ -177,5 +177,10 @@ export class VideoPageComponent implements OnInit {
       this.isLiked=true;
     });
 
+    this.service.getAll().subscribe((res:any)=>{
+        this.videos = res
+        
+    })
+    
   }
 }
