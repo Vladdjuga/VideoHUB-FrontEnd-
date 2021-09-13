@@ -160,6 +160,10 @@ export class VideoPageComponent implements OnInit {
       console.log("Video id = " + this.id);
       console.log(res);
       this.comments = res;
+    }) 
+    this.service.getAll().subscribe((res:any)=>{
+      this.videos = res
+      
     })
     this.service.getLikes(this.id as number).subscribe((res:number)=>{
       this.likes=res;
@@ -173,11 +177,5 @@ export class VideoPageComponent implements OnInit {
       this.likes=res;
       this.isLiked=true;
     });
-
-    this.service.getAll().subscribe((res:any)=>{
-        this.videos = res
-        
-    })
-    
   }
 }
