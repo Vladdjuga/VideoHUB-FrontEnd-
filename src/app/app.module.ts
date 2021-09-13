@@ -65,6 +65,7 @@ import { VideoPageComponent } from './components/video-page/video-page.component
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { LoadVideoComponent } from './components/load-video/load-video.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -118,7 +119,8 @@ const customNotifierOptions: NotifierOptions = {
     VideoPageComponent,
     ErrorPageComponent,
     ProfileEditComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    LoadVideoComponent
   ],
   imports: [
     BrowserModule,

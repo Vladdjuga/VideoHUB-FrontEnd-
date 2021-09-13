@@ -3,23 +3,23 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Video } from 'src/app/models/video';
 import { VideoService } from 'src/app/services/video.service';
-import {CollectionViewer, SelectionChange, DataSource} from '@angular/cdk/collections';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {BehaviorSubject, merge, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { CollectionViewer, SelectionChange, DataSource } from '@angular/cdk/collections';
+import { FlatTreeControl } from '@angular/cdk/tree';
+import { BehaviorSubject, merge, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 
 /** Flat node with expandable and level information */
 export class DynamicFlatNode {
   constructor(public item: string, public level = 1, public expandable = false,
-              public isLoading = false) {}
+    public isLoading = false) { }
 }
 
 /**
  * Database for dynamic data. When expanding a node in the tree, the data source will need to fetch
  * the descendants data from the database.
  */
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DynamicDatabase {
   dataMap = new Map<string, string[]>([
     ['Fruits', ['Apple', 'Orange', 'Banana']],
@@ -61,7 +61,7 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
   }
 
   constructor(private _treeControl: FlatTreeControl<DynamicFlatNode>,
-              private _database: DynamicDatabase) {}
+    private _database: DynamicDatabase) { }
 
   connect(collectionViewer: CollectionViewer): Observable<DynamicFlatNode[]> {
     this._treeControl.expansionModel.changed.subscribe(change => {
@@ -74,7 +74,7 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
     return merge(collectionViewer.viewChange, this.dataChange).pipe(map(() => this.data));
   }
 
-  disconnect(collectionViewer: CollectionViewer): void {}
+  disconnect(collectionViewer: CollectionViewer): void { }
 
   /** Handle expand/collapse behaviors */
   handleTreeControl(change: SelectionChange<DynamicFlatNode>) {
@@ -106,7 +106,7 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
       } else {
         let count = 0;
         for (let i = index + 1; i < this.data.length
-          && this.data[i].level > node.level; i++, count++) {}
+          && this.data[i].level > node.level; i++, count++) { }
         this.data.splice(index + 1, count);
       }
 
@@ -130,52 +130,60 @@ import { CommentService } from 'src/app/services/comment.service';
 export class VideoPageComponent implements OnInit {
 
   id: number | undefined;
-  video:Video=new Video();
-  likes=0;
-  videos:Array<Video>= new Array<Video>();
-  profile=new User();
-  isLiked=false;
+  video: Video = new Video();
+  likes = 0;
+  videos: Array<Video> = new Array<Video>();
+  profile = new User();
+  isLiked = false;
   private subscription: Subscription;
-  constructor(private activateRoute: ActivatedRoute,private service:VideoService, private commentservice:CommentService) {
+  constructor(private activateRoute: ActivatedRoute, private service: VideoService, private commentservice: CommentService) {
     const token = localStorage.getItem("token")
     if (token != null) {
       const jwtData = token.split('.')[1];
       const decodedJwtJsonData = window.atob(jwtData);
       const decodedJwtData = JSON.parse(decodedJwtJsonData);
       if (decodedJwtData.sub != null) {
-        this.profile.name=decodedJwtData.name;
-        this.profile.icon=decodedJwtData.icon;
+        this.profile.name = decodedJwtData.name;
+        this.profile.icon = decodedJwtData.icon;
       }
     }
 
     this.subscription = activateRoute.params.subscribe(params => this.id = params['id']);
   }
-  comments: Array<Comment>=new Array<Comment>();
+  comments: Array<Comment> = new Array<Comment>();
   ngOnInit(): void {
-     this.service.getById(this.id as number).subscribe((res:Video)=>{
-       this.video=res;
-     })
+    this.service.getById(this.id as number).subscribe((res: Video) => {
+      this.video = res;
+    })
 
-    this.commentservice.getMainComments(this.id as number).subscribe((res:any)=>{
+    this.commentservice.getMainComments(this.id as number).subscribe((res: any) => {
       console.log("Video id = " + this.id);
       console.log(res);
       this.comments = res;
-    }) 
-    this.service.getAll().subscribe((res:any)=>{
+    })
+    this.service.getAll().subscribe((res: any) => {
       this.videos = res
-      
+
     })
-    this.service.getLikes(this.id as number).subscribe((res:number)=>{
-      this.likes=res;
+    this.service.getLikes(this.id as number).subscribe((res: number) => {
+      this.likes = res;
     })
-    this.service.isLiked(this.id as number,this.profile.name).subscribe((res:boolean)=>{
-      this.isLiked=res;
+    this.service.isLiked(this.id as number, this.profile.name).subscribe((res: boolean) => {
+      this.isLiked = res;
     });
   }
-  like(){
-    this.service.addLike(this.id as number,this.profile.name).subscribe((res:number)=>{
-      this.likes=res;
-      this.isLiked=true;
-    });
+  like() {
+    if (!this.isLiked) {
+      this.service.addLike(this.id as number, this.profile.name).subscribe((res: number) => {
+        this.likes = res;
+        this.isLiked = true;
+      });
+    }
+    else{
+      this.service.removeLike(this.id as number, this.profile.name).subscribe((res: number) => {
+        this.likes = res;
+        this.isLiked = false;
+      });
+    }
   }
 }

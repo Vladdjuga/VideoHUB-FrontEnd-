@@ -46,7 +46,7 @@
   }
   
   .notfound .notfound-404 h1>span {
-    text-shadow: 2px 2px 0px #ffab00, -2px -2px 0px #ffab00, 0px 0px 8px #ff8700;
+    text-shadow: 2px 2px 0px #ff0080, -2px -2px 0px #ff0040, 0px 0px 8px #ff0000;
   }
   
   .notfound p {
@@ -74,8 +74,8 @@
   }
   
   .notfound a:hover {
-    color: #ffab00;
-    border-color: #ffab00;
+    color: #ff0077;
+    border-color: #ff0077;
   }
   
   @media only screen and (max-width: 480px) {

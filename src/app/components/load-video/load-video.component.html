@@ -1,0 +1,41 @@
+<div class="loader-m">
+  <div>
+    <form enctype="multipart/form-data">
+      <div>
+        <mat-form-field style="width: 100%;" class="example-full-width" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title...">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="align col-md-5">
+          <video [src]="url_vid" style="width: 100%;" controls></video>
+          <div class="align">
+            <button class="file-upload-button">
+              <input type="file" #fileInput (change)="onFileSelectVid(fileInput)" />
+            </button>
+
+            <span class="file-info">{{ fileInfoVid }}</span>
+          </div>
+        </div>
+        <div class="align col-md-5">
+          <img [src]="url_img" height="200">
+          <div class="align">
+            <button class="file-upload-button">
+              <input type="file" #fileInput1 (change)="onFileSelectImg(fileInput1)" />
+            </button>
+
+            <span class="file-info">{{ fileInfoImg }}</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <mat-form-field style="width: 100%;" class="example-full-width" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Write something..."></textarea>
+        </mat-form-field>
+      </div>
+      <button type="submit" mat-button>SHARE</button>
+    </form>
+  </div>
+</div>

@@ -13,6 +13,7 @@ export class ListUserComponent implements OnInit {
   {name:"Подписки",link:"/subscribtions"},
   {name:"Понравившиеся видео",link:"/liked-videos"},
   {name:"История",link:"/history"},
+  {name:"Загрузить видео",link:"/load-video"},
   {name:"Настройки",link:"/settings"}];
 
   profile=new User();

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { LoadVideoComponent } from './components/load-video/load-video.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -18,9 +19,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent,canActivate:[IsntLoggedGuard]},
   { path: 'video/:id', component: VideoPageComponent},
   { path: 'profile-edit', component: ProfileEditComponent ,canActivate:[IsLoggedGuard]},
-  { path: 'error-page', component: ErrorPageComponent},
-  { path: 'search/:search', component: SearchResultComponent}
-
+  { path: 'load-video', component: LoadVideoComponent},
+  { path: 'search/:search', component: SearchResultComponent},
+  { path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({
