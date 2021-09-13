@@ -54,17 +54,15 @@ height: 100%;
 
 .comments::-webkit-scrollbar {
     width: 10px;
-    background-color: #f9f9fd;
+    background-color: #343a40;
   }
   
   .comments::-webkit-scrollbar-thumb {
-    border-radius: 10px;
     background-color: rgba(121,9,70,1);
   }
-  
   .comments::-webkit-scrollbar-track {
     border-radius: 10px;
-    background-color: #f9f9fd;
+    background-color: #343a40;
   }
 
 .addComment{
