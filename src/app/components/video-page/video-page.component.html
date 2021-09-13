@@ -12,8 +12,8 @@
         <path
           d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 3 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
       </svg>
-      <svg *ngIf="!isLiked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart mr-1"
-        viewBox="0 0 16 16">
+      <svg *ngIf="!isLiked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-heart mr-1" viewBox="0 0 16 16">
         <path
           d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 3 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
       </svg>
@@ -34,51 +34,49 @@
                     <div class="tab-content p-0">
                       <div class="tab-pane fade active show" id="profile-post">
                         <div class="text-light comments">
-                          <!--  <mat-tree class="bg-dark text-light" [dataSource]="dataSource" [treeControl]="treeControl">
-                            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-                              <button mat-icon-button disabled></button>
-                              {{node.item}}
-                            </mat-tree-node>
-                            <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-                              <button mat-icon-button [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
-                                <mat-icon class="mat-icon-rtl-mirror">
-                                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                                </mat-icon>
-                              </button>
-                              {{node.item}}
-                              <mat-progress-bar *ngIf="node.isLoading" mode="indeterminate" class="example-tree-progress-bar">
-                              </mat-progress-bar>
-                            </mat-tree-node>
-                          </mat-tree>-->
+                          <div class="main_comment">
+                            <div class="com_img">
+                            </div>
+                            <div class="com_com">
+                              <span class="u_c"><b>Bob Jodyway:</b></span>
+                            <span class="m_c">First little comment is here )))
+                              <svg class="color_reply" xmlns="http://www.w3.org/2000/svg" width="22" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+                              </svg>
+                            </span>
+                            </div>                            
+                          </div>
                           <div *ngFor="let comment of comments;">
                             <span>{{comment.textContent}}</span>
                           </div> 
                         </div>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                          <mat-label>Comment</mat-label>
-                          <input matInput>
-                        </mat-form-field>
+                          <mat-form-field class="example-full-width Cm_1" appearance="fill">
+                            <mat-label>Comment</mat-label>
+                            <input matInput>
+                          </mat-form-field>                          
+                          <div class="addComment">
+                            <button mat-stroked-button>add comment</button>
+                          </div>
                       </div>
                     </div>
                   </mat-tab>
                   <mat-tab label="RECOMENDATION">
                     <div class="over tab-content p-0">
                       <div class="over row py-5 px-4">
-                        <div class="over col-md-10">
+                        <div class="over col-md-10" style="padding-left: 20%;">
                           <div class=" text-light comments">
-                            <div>
+                            <div class="text-center">
                               <ng-template ngFor let-item [ngForOf]="videos">
-                                <div>
-                                  <img src="http://localhost:8080/video/files/{{item.preview}}" width="280" height="140" />
+                                <div (click)="videoRef(item.id)">
+                                  <img src="http://localhost:8080/video/files/{{item.preview}}" width="260" height="140" />
                                   <h3>{{item.title}}</h3>
                                   <h5>{{item.description}}</h5>
-                              </div>
-                            </ng-template>
+                                </div>
+                              </ng-template>
                             </div>
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </mat-tab>
                 </mat-tab-group>

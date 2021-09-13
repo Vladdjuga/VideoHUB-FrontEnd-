@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Video } from 'src/app/models/video';
 import { VideoService } from 'src/app/services/video.service';
@@ -136,7 +136,7 @@ export class VideoPageComponent implements OnInit {
   profile = new User();
   isLiked = false;
   private subscription: Subscription;
-  constructor(private activateRoute: ActivatedRoute, private service: VideoService, private commentservice: CommentService) {
+  constructor(private activateRoute: ActivatedRoute,private service:VideoService, private commentservice:CommentService,private router:Router) {
     const token = localStorage.getItem("token")
     if (token != null) {
       const jwtData = token.split('.')[1];
@@ -171,6 +171,10 @@ export class VideoPageComponent implements OnInit {
     this.service.isLiked(this.id as number, this.profile.name).subscribe((res: boolean) => {
       this.isLiked = res;
     });
+    this.service.getAll().subscribe((res:any)=>{
+        this.videos = res
+        
+    })
   }
   like() {
     if (!this.isLiked) {
@@ -186,4 +190,13 @@ export class VideoPageComponent implements OnInit {
       });
     }
   }
+  videoRef(id:number){
+    this.router.navigate([`/video/${id}`]);
+    setTimeout(this.reload,1000)
+  }
+  reload()
+  {
+    window.location.reload()
+  }
+
 }
