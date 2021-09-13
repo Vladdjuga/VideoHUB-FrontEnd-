@@ -64,6 +64,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -116,7 +117,8 @@ const customNotifierOptions: NotifierOptions = {
     RegisterComponent,
     VideoPageComponent,
     ErrorPageComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

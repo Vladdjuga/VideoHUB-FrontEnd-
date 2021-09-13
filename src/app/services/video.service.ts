@@ -13,6 +13,9 @@ export class VideoService {
 getById(id:number):Observable<any>{
   return this.http.get<any>(`http://localhost:8080/video/get/${id}`);
 }
+getBySearch(search:string):Observable<any>{
+  return this.http.get<any>(`http://localhost:8080/video/search/${search}`);
+}
 getLikes(id:number):Observable<any>{
   return this.http.get<any>(`http://localhost:8080/like/getvideo/${id}`);
 }

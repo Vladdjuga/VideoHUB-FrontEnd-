@@ -1,3 +1,21 @@
-<p>
-  {{search}}
-</p>
+<div class="main-vid">
+    <div (click)="videoRef(video.id)" class="selector-vid mt-2" *ngFor="let video of videos" [value]="video">
+      <div class="row row-vid">
+          <div class="col-lg-5 back-img" style="background-image: url(http://localhost:8080/video/files/{{video.preview}});">
+              <!-- <img src="http://localhost:8080/video/files/{{video.preview}}" class="vid-preview"> -->
+          </div>
+          <div class="col-lg-7">
+              <div class="row row-inf">
+                <div class="col-lg-12 vid-inf">
+                    <div class="title">{{video.title}}</div>
+                    <div class="description">{{video.description.padEnd(30)}}...</div>
+                    <div class="channel-inf">
+                      {{video.channel.name}}
+                      <img class="user-pic" src="http://localhost:8080/user/files-id/{{video.channel.user_id}}">
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>

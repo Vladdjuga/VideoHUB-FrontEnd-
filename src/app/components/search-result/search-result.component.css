@@ -1,0 +1,47 @@
+.main-vid{
+    margin: 0 30%;
+}
+.vid-preview{
+    width: 400px;
+    height: 255px;
+}
+.selector-vid{
+    background-color:rgba(255, 255, 255, 0.05);
+    transition: 0.25s;
+    cursor: pointer;
+}
+.selector-vid:hover{
+    background-color:rgba(255, 255, 255, 0.1);
+}
+.back-img{
+    background-color: rgb(44, 44, 44);
+    background-size: cover;
+}
+.row-vid{
+    min-height: 250px;
+}
+.title{
+    font-size: 17px;
+}
+.description{
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.vid-inf{
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
+}
+.user-pic{
+    max-width: 25px;
+    max-height: 25px;
+    border-radius: 50%;
+}
+.channel-inf{
+    position: absolute;
+    bottom: 4%;
+    right: 4%;
+}
+.row-inf{
+    height: 100%;
+}
