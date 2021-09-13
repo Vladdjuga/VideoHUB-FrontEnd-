@@ -25,4 +25,7 @@ addLike(id:number,usr:string){
 isLiked(id:number,usr:string){
   return this.http.get<any>(`http://localhost:8080/like/liked-video/${id}&${usr}`);
 }
+getAll():Observable<any>{
+  return this.http.get<any>(`http://localhost:8080/video/getall`);
+}
 }
