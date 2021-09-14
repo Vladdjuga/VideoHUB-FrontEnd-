@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoadVideoComponent } from './components/load-video/load-video.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
@@ -13,6 +14,7 @@ import { IsLoggedGuard } from './guards/islogged';
 import { IsntLoggedGuard } from './guards/isntlogged';
 
 const routes: Routes = [
+  { path: '', component: HomePageComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'users-list', component: UsersListComponent ,canActivate:[IsLoggedGuard]},
   { path: 'login', component: LoginComponent,canActivate:[IsntLoggedGuard]},

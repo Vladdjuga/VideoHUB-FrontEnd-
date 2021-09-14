@@ -1,0 +1,17 @@
+.video-div{
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+.left{
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    padding-right: 20%;
+    margin-top: 1.5%;
+}
+
+.row{
+    --bs-gutter-x: 0 !important;
+    margin: 0!important;
+}
