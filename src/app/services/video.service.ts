@@ -1,13 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Video } from '../models/video';
+import { VideoRequest } from '../models/videorequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VideoService {
 
+  headers:HttpHeaders=new HttpHeaders();
   constructor(private http: HttpClient) { }
 
 getById(id:number):Observable<any>{
@@ -30,5 +32,9 @@ isLiked(id:number,usr:string){
 }
 getAll():Observable<any>{
   return this.http.get<any>(`http://localhost:8080/video/getall`);
+}
+uploadVideo(formData:FormData):Observable<any>{
+  this.headers.append('Content-Type',"multipart/form-data");
+  return this.http.post<any>(`http://localhost:8080/video/upload`,formData,{headers:this.headers});
 }
 }

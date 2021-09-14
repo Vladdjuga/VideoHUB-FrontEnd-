@@ -4,7 +4,7 @@
       <div>
         <mat-form-field style="width: 100%;" class="example-full-width" appearance="fill">
           <mat-label>Title</mat-label>
-          <input matInput placeholder="Title...">
+          <input [(ngModel)]="video.title" name="title" matInput placeholder="Title..." required>
         </mat-form-field>
       </div>
       <div class="row">
@@ -12,7 +12,7 @@
           <video [src]="url_vid" style="width: 100%;" controls></video>
           <div class="align">
             <button class="file-upload-button">
-              <input type="file" #fileInput (change)="onFileSelectVid(fileInput)" />
+              <input [(ngModel)]="file_vid" name="file_vid" type="file" #fileInput (change)="onFileSelectVid(fileInput,$any(target($event).files))" required/>
             </button>
 
             <span class="file-info">{{ fileInfoVid }}</span>
@@ -22,7 +22,7 @@
           <img [src]="url_img" height="200">
           <div class="align">
             <button class="file-upload-button">
-              <input type="file" #fileInput1 (change)="onFileSelectImg(fileInput1)" />
+              <input [(ngModel)]="file_prev" name="file_prev" type="file" #fileInput1 (change)="onFileSelectImg(fileInput1,$any(target($event).files))" required/>
             </button>
 
             <span class="file-info">{{ fileInfoImg }}</span>
@@ -32,10 +32,10 @@
       <div>
         <mat-form-field style="width: 100%;" class="example-full-width" appearance="fill">
           <mat-label>Description</mat-label>
-          <textarea matInput placeholder="Write something..."></textarea>
+          <textarea [(ngModel)]="video.description" name="description" matInput placeholder="Write something..."></textarea>
         </mat-form-field>
       </div>
-      <button type="submit" mat-button>SHARE</button>
+      <button (click)="onSubmit()" type="submit" mat-button>SHARE</button>
     </form>
   </div>
 </div>
