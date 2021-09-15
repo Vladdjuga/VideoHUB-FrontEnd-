@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Video } from 'src/app/models/video';
 import { ChannelService } from 'src/app/services/channel.service';
 import { VideoService } from 'src/app/services/video.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-home-page',
@@ -12,8 +13,11 @@ import { VideoService } from 'src/app/services/video.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  id: number | undefined;
+  likes = 0;
+  profile = new User();
+  videos: Array<Video> = new Array<Video>();
 
-  videos = new Array<Video>();
   constructor(private service: VideoService, private channelservice: ChannelService,private router:Router,private loader:NgxUiLoaderService) {
   }
 
@@ -26,8 +30,15 @@ export class HomePageComponent implements OnInit {
     })
     
   }
+
   videoRef(id:number){
     this.router.navigate([`/video/${id}`]);
+    setTimeout(this.reload,1000)
   }
+  reload()
+  {
+    window.location.reload()
+  }
+
 
 }
