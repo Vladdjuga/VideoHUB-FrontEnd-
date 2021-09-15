@@ -1,0 +1,343 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+  type="text/css" />
+<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="body">
+  <a (click)="LogOut()"><img style="position: absolute; top: 0; right: 0; border: 0;"
+      src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+      alt="Fork me on GitHub"
+      data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  <ul id="slide-out"
+    style="background-size: cover; background-image: url(https://img.freepik.com/free-photo/white-fur-fabric-texture-background_293060-4016.jpg?size=626&ext=jpg&ga=GA1.2.1657348464.1625356800);"
+    class="side-nav fixed z-depth-4">
+    <li>
+      <div class="userView">
+        <div class="background">
+          <img style="background-size: contain;"
+            src="https://oir.mobi/uploads/posts/2021-03/1616542113_23-p-chernii-tsvet-fon-27.jpg">
+        </div>
+        <a><img class="circle"
+            src="https://thumbs.dreamstime.com/b/%D0%B7%D0%BD%D0%B0%D0%BA-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B0-%D0%BD%D0%B0-%D0%B7%D0%BD%D0%B0%D1%87%D0%BA%D0%B5-%D0%BD%D0%BE%D1%83%D1%82%D0%B1%D1%83%D0%BA%D0%B0-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B5-%D1%80%D0%B5%D0%B7%D0%B5%D1%80%D0%B2%D0%B0-166205404.jpg"></a>
+        <a><span class="white-text name">Welcome back,</span></a>
+        <a><span class="white-text email">admin@gmail.com!</span></a>
+      </div>
+    </li>
+
+
+    <li (click)="Dashboard()"><a class="active"><i class="material-icons pink-item">dashboard</i>Dashboard</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+
+    <li><a style="color: black;">Management</a></li>
+    <li (click)="Breeds()"><a><i class="material-icons pink-item">perm_identity</i>Users</a></li>
+    <li (click)="Sales()"><a><i class="material-icons pink-item">smart_display</i>Videos</a></li>
+    <li (click)="Users()"><a><i class="material-icons pink-item">textsms</i>Comments</a></li>
+    <!-- <li (click)="Requests()"><a><i class="material-icons pink-item">add_shopping_cart</i>Requests for sale</a></li> -->
+  </ul>
+  <main>
+    <section *ngIf="part=='dashboard'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Dashboard </h1>
+      </div>
+      <div class="row fields">
+        <div class="col l3 s6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>0</h3>
+              <p>Users</p>
+            </div>
+            <div class="icon">
+              <i class="material-icons pink-item myIco"
+                style="font-size: 70px; margin-top: 15px; color: #0000004f !important;">account_circle</i>
+            </div>
+            <div class="moreinfo" (click)="Breeds()">
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col l3 s6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>0</h3>
+              <p>Something</p>
+            </div>
+            <div class="icon">
+              <i class="material-icons pink-item myIco"
+                style="font-size: 70px; margin-top: 15px; color: #0000004f !important;">key</i>
+            </div>
+            <div class="moreinfo" (click)="Sales()">
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col l3 s6">
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>0</h3>
+              <p>Something</p>
+            </div>
+            <div class="icon">
+              <i class="material-icons pink-item myIco"
+                style="font-size: 70px; margin-top: 15px; color: #0000004f !important;">key</i>
+            </div>
+            <div class="moreinfo" (click)="Users()">
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col l3 s6">
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>0</h3>
+              <p>Something</p>
+            </div>
+            <div class="icon">
+              <i class="material-icons pink-item myIco"
+                style="font-size: 70px; margin-top: 15px; color: #0000004f !important;">key</i>
+            </div>
+            <div class="moreinfo" (click)="Requests()">
+              <a class="small-box-footer " class="animsition-link" style="color: rgba(255, 255, 255, 0.8);">More info <i
+                  class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="container fields">
+          <div class="quick-links center-align">
+            <h3>Quick Links</h3>
+            <div class="row">
+              <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Mod Handbook"><a
+                  class="waves-effect waves-light btn-large"><span class="href">Something</span></a>
+              </div>
+              <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Staff Applications">
+                <a class="waves-effect waves-light btn-large"><span class="href">Something</span></a>
+              </div>
+              <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Name Guidelines"><a
+                  class="waves-effect waves-light btn-large" (click)="Users()"><span class="href">Something</span></a>
+              </div>
+              <div class="col l3 s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Issue Tracker"><a
+                  class="waves-effect waves-light btn-large" (click)="Requests()"><span
+                    class="href">Something</span></a>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="center-align">Current Staff Members</h3>
+          <div class="custom-responsive">
+            <table class="striped hover centered">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Access Level</th>
+                  <th>Last Site Login</th>
+                  <th>TFA Active?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="color: black;">
+                  <td>admin@.gmail.com</td>
+                  <td>Administrator</td>
+                  <td>2021-05-13</td>
+                  <td><i class="text-green material-icons">check</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section *ngIf="part=='breeds'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Breeds </h1>
+      </div>
+      <div id="posttable" class="container my-scroll">
+        <table class="responsive-table striped hover centered" id="names-table">
+          <thead>
+            <tr>
+              <th class="sort">Breed:</th>
+              <th class="sort">Country:</th>
+              <th class="sort">Breed type:</th>
+              <th class="sort">Height:</th>
+              <th class="sort">Weight:</th>
+              <th><button class="btn bg-green" (click)="Add()">Add breed</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let breed of breeds;">
+              <td><a>{{breed.breed}}</a></td>
+              <td><a>{{breed.country}}</a></td>
+              <td><a>{{breed.dogType}}</a></td>
+              <td><a>{{breed.height}}</a></td>
+              <td><a>{{breed.weight}}</a></td>
+              <td class="centr">
+                <div class="btn-toolbar">
+                  <a (click)="Edit(breed.id)">
+                    <button class="btn bg-aqua" type="submit">
+                      <i class="material-icons">edit</i>
+                    </button>
+                  </a>
+                  <a (click)="deleteBreed(breed.breed)">
+                    <button class="btn bg-red" type="submit">
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </a>
+                </div>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section *ngIf="part == 'sales'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Dogs for sale </h1>
+      </div>
+      <div id="posttable" class="container my-scroll" style="width: 90%;">
+        <table class="responsive-table striped hover centered" id="names-table">
+          <thead>
+            <tr>
+              <th class="sort">Breed:</th>
+              <th class="sort">Breed type:</th>
+              <th class="sort">Age:</th>
+              <th class="sort">Info:</th>
+              <th class="sort">Price:</th>
+              <th><button class="btn bg-green">Add dog for sale</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let sale of sales;">
+              <td><a>{{sale.breed}}</a></td>
+              <td><a>{{sale.dogType}}</a></td>
+              <td><a>{{sale.age}}</a></td>
+              <td class="infoBig"><a>{{sale.info}}</a></td>
+              <td class="price"><a>{{sale.price}}</a></td>
+              <td class="centr">
+                <div class="btn-toolbar">
+                  <a (click)="EditSaleDog(sale.id)">
+                    <button class="btn bg-aqua" type="submit">
+                      <i class="material-icons">edit</i>
+                    </button>
+                  </a>
+                  <a (click)="DeleteSaleDog(sale.id)">
+                    <button class="btn bg-red" type="submit">
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </a>
+                </div>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section *ngIf="part == 'users'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Registered users </h1>
+      </div>
+      <div id="posttable" class="container">
+        <table class="responsive-table striped hover centered" id="names-table">
+          <thead>
+            <tr>
+              <th>Name:</th>
+              <th>Email:</th>
+              <th>Phone number:</th>
+              <th>City:</th>
+              <th>Coins:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let user of users;">
+          <td><a>{{user.name}}</a></td>
+          <td><a>{{user.email}}</a></td>
+          <td><a>{{user.phoneNumber}}</a></td>
+          <td><a>{{user.city}}</a></td>
+          <td><a>{{user.coins}}</a></td>
+        </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section *ngIf="part == 'requests'" class="content">
+      <div class="page-announce valign-wrapper"><a data-activates="slide-out"
+          class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
+        <h1 class="page-announce-text valign">// Registered users </h1>
+      </div>
+      <div id="posttable" class="container">
+        <table class="responsive-table striped hover centered" id="names-table">
+          <thead>
+            <tr>
+              <th>Breed:</th>
+              <th>Breed type:</th>
+              <th>Age:</th>
+              <th>Price:</th>
+              <th>Info:</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let request of requests;">
+          <td><a>{{request.breed}}</a></td>
+          <td><a>{{request.breedType}}</a></td>
+          <td><a>{{request.age}}</a></td>
+          <td><a>{{request.price}}</a></td>
+          <td><a>{{request.info}}</a></td>
+          <td>
+            <div class="btn-toolbar">
+              <a>
+                <button class="btn green" type="submit" (click)="RequestTrue(request.id)">
+                  <i class="material-icons">done</i>
+                </button>
+              </a>
+              <a>
+                <button class="btn red" type="submit" (click)="RequestFalse(request.id)">
+                  <i class="material-icons">remove</i>
+                </button>
+              </a>
+            </div>
+          </td>
+        </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        2021 VIDEO NUB ~ Term Paper ~ by NAV
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script>
+    // Hide sideNav
+    $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    });
+    $(document).ready(function () {
+      $('.tooltipped').tooltip({ delay: 50 });
+    });
+    $('select').material_select();
+    $('.collapsible').collapsible();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</div>
