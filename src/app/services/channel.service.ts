@@ -12,4 +12,7 @@ export class ChannelService {
 getById(id:number):Observable<any>{
   return this.http.get<any>(`http://localhost:8080/channel/get/${id}`);
 }
+getByUserId(id:number):Observable<any>{
+  return this.http.get<any>(`http://localhost:8080/channel/get-user/${id}`);
+}
 }
