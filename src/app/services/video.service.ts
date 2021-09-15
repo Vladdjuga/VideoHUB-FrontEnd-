@@ -37,4 +37,7 @@ uploadVideo(formData:FormData):Observable<any>{
   this.headers.append('Content-Type',"multipart/form-data");
   return this.http.post<any>(`http://localhost:8080/video/upload`,formData,{headers:this.headers});
 }
+getPage(items:number,page:number){
+  return this.http.get<any>(`http://localhost:8080/video/get-page/${items}&${page}`);
+}
 }

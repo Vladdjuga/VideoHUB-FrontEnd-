@@ -39,5 +39,8 @@ export class AppComponent {
   changeText(){
     this.router.navigate([`/search/${this.search}`]);
   }
+  home(){
+    this.router.navigate([``]);
+  }
   
 }

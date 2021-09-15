@@ -1,17 +1,16 @@
-<div>
-  <div>
-    <div class="row video-div">
-      <div class="col-lg-4">
-        <div class=" ">
-          <img src="http://localhost:8080/video/files/prev.jpeg" width="480" height="260" />
-      
+<div style="height: 100%;">
+  <div style="height: 100%;">
+    <div style="height: 100%;" class="row video-div">
+      <div class="col-lg-2 col-md-6 col-sm-12" *ngFor="let video of videos" [value]="video">
+        <div class="row back-img" style="background-image: url(http://localhost:8080/video/files/{{video.preview}});">
+          <!-- <img src="http://localhost:8080/video/files/{{video.preview}}" width="100%" height="260" /> -->
         </div>
         <div class="row">
           <div class="col-lg-8">
-            <h3>title</h3>
-            <h4>description</h4>
+            <h3>{{video.title.padEnd(15)}}...</h3>
+            <!-- <h4>{{video.description}}</h4> -->
           </div>
-          <div class="left col-lg-4">
+          <div class="left col-lg-4"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart mr-1"
               viewBox="0 0 16 16">
               <path
@@ -21,17 +20,14 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class=" ">
-          <img src="http://localhost:8080/video/files/1" width="480" height="260"/>
-      
+      <!-- <div class="col-lg-2 col-md-6 col-sm-12" *ngFor="let video of videos" [value]="video">
+        <div class="row back-img" style="background-image: url(http://localhost:8080/video/files/{{video.preview}});">
         </div>
         <div class="row">
           <div class="col-lg-8">
-            <h3>title</h3>
-            <h4>description</h4>
+            <h3>{{video.title.padEnd(15)}}...</h3>
           </div>
-          <div class="left col-lg-4">
+          <div class="left col-lg-4"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart mr-1"
               viewBox="0 0 16 16">
               <path
@@ -41,17 +37,14 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class=" ">
-          <img src="http://localhost:8080/video/files/1" width="480" height="260" />
-      
+      <div class="col-lg-2 col-md-6 col-sm-12" *ngFor="let video of videos" [value]="video">
+        <div class="row back-img" style="background-image: url(http://localhost:8080/video/files/{{video.preview}});">
         </div>
         <div class="row">
           <div class="col-lg-8">
-            <h3>title</h3>
-            <h4>description</h4>
+            <h3>{{video.title.padEnd(15)}}...</h3>
           </div>
-          <div class="left col-lg-4">
+          <div class="left col-lg-4"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart mr-1"
               viewBox="0 0 16 16">
               <path
@@ -60,28 +53,7 @@
             <p>666</p>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4">
-        <div class=" ">
-          <img src="http://localhost:8080/video/files/1" width="480" height="260"/>
-      
-        </div>
-        <div class="row">
-          <div class="col-lg-8">
-            <h3>title</h3>
-            <h4>description</h4>
-          </div>
-          <div class="left col-lg-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart mr-1"
-              viewBox="0 0 16 16">
-              <path
-                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 3 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-            </svg>
-            <p>666</p>
-          </div>
-        </div>
-      </div>
-
+      </div> -->
     </div>
   </div>
 </div>

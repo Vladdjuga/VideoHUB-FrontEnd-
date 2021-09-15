@@ -1,6 +1,7 @@
 .video-div{
     padding-top: 2%;
     padding-left: 5%;
+    padding-right: 5%;
 }
 
 .left{
@@ -14,4 +15,9 @@
 .row{
     --bs-gutter-x: 0 !important;
     margin: 0!important;
+}
+.back-img{
+    background-color: rgb(44, 44, 44);
+    background-size: cover;
+    height: 15vh;
 }

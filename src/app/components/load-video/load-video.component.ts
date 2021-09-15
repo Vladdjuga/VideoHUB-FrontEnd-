@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Channel } from 'src/app/models/channel';
@@ -14,20 +15,20 @@ import { VideoService } from 'src/app/services/video.service';
 })
 export class LoadVideoComponent implements OnInit {
 
-  profile=new User();
-  constructor(private ngxService: NgxUiLoaderService,private service:ChannelService,private videoService:VideoService) {
+  profile = new User();
+  constructor(private ngxService: NgxUiLoaderService, private service: ChannelService, private videoService: VideoService,private router:Router) {
     const token = localStorage.getItem("token")
     if (token != null) {
       const jwtData = token.split('.')[1];
       const decodedJwtJsonData = window.atob(jwtData);
       const decodedJwtData = JSON.parse(decodedJwtJsonData);
       if (decodedJwtData.sub != null) {
-        this.profile.id=decodedJwtData.sub.split(",")[0];
-        this.profile.name=decodedJwtData.name;
-        this.profile.icon=decodedJwtData.icon;
+        this.profile.id = decodedJwtData.sub.split(",")[0];
+        this.profile.name = decodedJwtData.name;
+        this.profile.icon = decodedJwtData.icon;
       }
     }
-   }
+  }
 
   ngOnInit() {
   }
@@ -36,9 +37,9 @@ export class LoadVideoComponent implements OnInit {
   url_img = "https://grinvich.com/static/assets/images/media-default-video.png";
   fileInfoVid = "";
   fileInfoImg = "";
-  file_vid=new File([],"");
-  file_prev=new File([],"");
-  video=new VideoRequest();
+  file_vid = new File([], "");
+  file_prev = new File([], "");
+  video = new VideoRequest();
   formData: FormData = new FormData();
 
   formatBytes(bytes: number): string {
@@ -62,7 +63,7 @@ export class LoadVideoComponent implements OnInit {
     return event.target;
   }
 
-  onFileSelectVid(input: HTMLInputElement,files:FileList): void {
+  onFileSelectVid(input: HTMLInputElement, files: FileList): void {
 
 
     const file = (input.files as FileList)[0];
@@ -73,10 +74,10 @@ export class LoadVideoComponent implements OnInit {
         this.url_vid = (<FileReader>event.target).result as string;
       }
     }
-    this.file_vid=files.item(0) as File;
+    this.file_vid = files.item(0) as File;
     this.fileInfoVid = `${file.name} (${this.formatBytes(file.size)})`;
   }
-  onFileSelectImg(input: HTMLInputElement,files:FileList): void {
+  onFileSelectImg(input: HTMLInputElement, files: FileList): void {
     const file = (input.files as FileList)[0];
     if (file) {
       var reader = new FileReader();
@@ -85,22 +86,30 @@ export class LoadVideoComponent implements OnInit {
         this.url_img = (<FileReader>event.target).result as string;
       }
     }
-    this.file_prev=files.item(0) as File;
+    this.file_prev = files.item(0) as File;
     this.fileInfoImg = `${file.name} (${this.formatBytes(file.size)})`;
   }
-  onSubmit(){
+  onSubmit() {
     this.ngxService.start();
-    this.service.getByUserId(this.profile.id).subscribe((res:Channel)=>{
-      this.video.channel_id=res.id;
+    var chn = new Channel();
+
+    this.service.getByUserId(this.profile.id).subscribe((res: Channel) => {
+      console.log(res);
+      chn = res;
     })
-    var json=JSON.stringify(this.video);
-    this.formData.append('video_inf', json);
-    this.formData.append('video', this.file_vid);
-    this.formData.append('preview', this.file_prev);
-    this.videoService.uploadVideo(this.formData).subscribe((res:any)=>{
-      //
-    })
-    this.ngxService.stop();
+    setTimeout(() => {
+      this.video.channel_id = chn.id;
+      console.log(this.video);
+      var json = JSON.stringify(this.video);
+      this.formData.append('video_inf', json);
+      this.formData.append('video', this.file_vid);
+      this.formData.append('preview', this.file_prev);
+      this.videoService.uploadVideo(this.formData).subscribe((res: any) => {
+        //
+        this.ngxService.stop();
+        this.router.navigate([`/video/${res}`])
+      })
+    }, 5000);
   }
 }
 

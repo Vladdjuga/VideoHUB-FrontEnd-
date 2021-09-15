@@ -67,6 +67,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { LoadVideoComponent } from './components/load-video/load-video.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -122,7 +123,8 @@ const customNotifierOptions: NotifierOptions = {
     ProfileEditComponent,
     SearchResultComponent,
     LoadVideoComponent,
-    AdminComponent
+    AdminComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
