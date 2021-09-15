@@ -773,3 +773,45 @@ img.rounded{
 .mat-tab-label-content{
     color: whitesmoke !important;
 }
+
+.about_part{
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 80%;
+    height: 250px;
+
+    border-radius: 15px;
+    background-image: url(https://swall.teahub.io/photos/small/43-435365_black-abstract-background-wallpaper-art-luxury-dark-.jpg);
+    background-size: cover;
+}
+
+.half{
+    height: 45%;
+    width: 48.5%;
+
+    margin-left: 1%;
+    margin-top: 1%;
+
+    float: left;
+    border-radius: 10px;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+    padding-left: 5%;
+    padding-top: 3%;
+}
+
+.description_p{
+    color: #ffffff;    
+    font-size: 14px;
+}
+
+.description_main{
+    color: #ffffff;   
+    display: block; 
+    letter-spacing: 4px;
+    margin-top: 10px;
+    font-size: 20px;
+
+    font-family: 'Dosis', sans-serif;
+}
