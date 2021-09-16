@@ -33,6 +33,9 @@ isLiked(id:number,usr:string){
 getAll():Observable<any>{
   return this.http.get<any>(`http://localhost:8080/video/getall`);
 }
+getUserVideos(username:string):Observable<any>{
+  return this.http.get<any>(`http://localhost:8080/video/user/${username}`);
+}
 uploadVideo(formData:FormData):Observable<any>{
   this.headers.append('Content-Type',"multipart/form-data");
   return this.http.post<any>(`http://localhost:8080/video/upload`,formData,{headers:this.headers});

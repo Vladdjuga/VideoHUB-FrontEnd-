@@ -82,5 +82,9 @@ export class VideoPageComponent implements OnInit {
   {
     window.location.reload()
   }
+  normalTime(date:Date){
+    var options = { weekday: "long", year: "numeric", month: "long", day: "numeric" } as const;
+    return new Date(date).toLocaleDateString("ru-RU",options);
+  }
 
 }

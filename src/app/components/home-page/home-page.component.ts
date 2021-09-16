@@ -14,31 +14,30 @@ import { User } from 'src/app/models/user';
 })
 export class HomePageComponent implements OnInit {
   id: number | undefined;
-  likes = 0;
   profile = new User();
   videos: Array<Video> = new Array<Video>();
-
-  constructor(private service: VideoService, private channelservice: ChannelService,private router:Router,private loader:NgxUiLoaderService) {
+  likes = new Map<number, number>();
+  constructor(private service: VideoService, private channelservice: ChannelService, private router: Router, private loader: NgxUiLoaderService) {
   }
 
   ngOnInit() {
     this.loader.start();
-    this.service.getAll().subscribe((res:Array<Video>)=>{
+    this.service.getAll().subscribe((res: Array<Video>) => {
       console.log(res);
-      this.videos=res;
-      this.loader.stop();
+      this.videos = res;
     })
-    
+    this.loader.stop();
   }
 
-  videoRef(id:number){
+  videoRef(id: number) {
     this.router.navigate([`/video/${id}`]);
-    setTimeout(this.reload,1000)
   }
-  reload()
-  {
+  reload() {
     window.location.reload()
   }
-
+  normalTime(date:Date){
+    var options = { weekday: "long", year: "numeric", month: "long", day: "numeric" } as const;
+    return new Date(date).toLocaleDateString("ru-RU",options);
+  }
 
 }

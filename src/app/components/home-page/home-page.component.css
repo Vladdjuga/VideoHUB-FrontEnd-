@@ -17,7 +17,17 @@
     margin: 0!important;
 }
 .back-img{
-    background-color: rgb(44, 44, 44);
-    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 15vh;
+}
+.vids{
+    transition: 0.5s;
+    cursor: pointer;
+}
+.vids:hover{
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0 1%;
 }

@@ -537,7 +537,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .timeline-header .username,
 .timeline-header .username a {
-    color: #2d353c
+    color: #fcfcfc
 }
 
 .timeline img {
@@ -639,6 +639,9 @@ select.form-control:not([size]):not([multiple]) {
     font-size: 21px;
     font-weight: 300;
     line-height: 1.4;
+    height: 20vh;
+    background-size: cover;
+    cursor: pointer;
 }
 
 .text-danger, .text-red {

@@ -6,7 +6,8 @@ export class Video{
     title:string;
     description:string;
     preview:string;
-    channel:Channel
+    channel:Channel;
+    created_at:Date
     constructor(){
         this.id=0;
         this.src="";
@@ -14,5 +15,6 @@ export class Video{
         this.description="";
         this.preview="";
         this.channel=new Channel();
+        this.created_at=new Date();
     }
 }
