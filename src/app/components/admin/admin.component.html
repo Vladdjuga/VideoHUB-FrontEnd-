@@ -200,44 +200,146 @@
     <section *ngIf="part == 'sales'" class="content">
       <div class="page-announce valign-wrapper"><a data-activates="slide-out"
           class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a>
-        <h1 class="page-announce-text valign">// Dogs for sale </h1>
+        <h1 class="page-announce-text valign">// All videos </h1>
       </div>
       <div id="posttable" class="container my-scroll" style="width: 90%;">
-        <table class="responsive-table striped hover centered" id="names-table">
+        <table class="responsive-table table-striped table-dark striped hover centered" id="names-table">
           <thead>
             <tr>
-              <th class="sort">Breed:</th>
-              <th class="sort">Breed type:</th>
-              <th class="sort">Age:</th>
-              <th class="sort">Info:</th>
-              <th class="sort">Price:</th>
-              <th><button class="btn bg-green">Add dog for sale</button></th>
+              <th class="sort">Video:</th>
+              <th class="sort">Likes:</th>
+              <th class="sort">Dislikes:</th>
+              <th class="sort">Comments:</th>
+              <th class="sort">User:</th>
+              <th style="max-width: 75px;"></th>
             </tr>
           </thead>
           <tbody>
-            <!-- <tr *ngFor="let sale of sales;">
-              <td><a>{{sale.breed}}</a></td>
-              <td><a>{{sale.dogType}}</a></td>
-              <td><a>{{sale.age}}</a></td>
-              <td class="infoBig"><a>{{sale.info}}</a></td>
-              <td class="price"><a>{{sale.price}}</a></td>
-              <td class="centr">
-                <div class="btn-toolbar">
-                  <a (click)="EditSaleDog(sale.id)">
-                    <button class="btn bg-aqua" type="submit">
-                      <i class="material-icons">edit</i>
-                    </button>
-                  </a>
-                  <a (click)="DeleteSaleDog(sale.id)">
-                    <button class="btn bg-red" type="submit">
-                      <i class="material-icons">delete</i>
-                    </button>
-                  </a>
-                </div>
+            <tr>
+              <td class="Videos_v" (click)="ShowInfo()"></td>
+              <td class="min-weight"><a>501</a></td>
+              <td class="min-weight"><a>26</a></td>
+              <td class="min-weight"><a>85</a></td>
+              <td><a>@User_Smth</a></td>
+              <td>
+                <button class="btn bg-red" type="submit">
+                  <i class="material-icons">delete</i>
+                </button>
               </td>
-            </tr> -->
+            </tr>
           </tbody>
         </table>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-hide">
+              <span class="close" style="font-size: 38px;" (click)="Hide()">&times;</span>
+            </div>
+            <div class="m-i-h">
+              <div class="modal-video">
+              </div>
+              <div class="modal-b">
+              </div>
+              <div class="modal-comments">
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">some comment under this video</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">some commentsd under this video and ather additional info here</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">just little comment</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">and the same one different comment</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">some comment under this video</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">some commentsd under this video and ather additional info here</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">just little comment</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+                <div class="comment-div">
+                  <div class="c-hp"></div>
+                  <div class="c-au">
+                    <span class="author-ct">@User_Name: </span>
+                  </div>
+                  <div class="c-com">
+                    <span class="text-comment">and the same one different comment</span>
+                  </div>
+                  <div class="c-tr">
+                    <span class="material-icons">delete</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

@@ -40,4 +40,19 @@ export class AdminComponent implements OnInit {
   Add() {
     this.part = "add";
   }
+
+  ShowInfo() {
+    var modal = document.getElementById("myModal");
+    if (modal != null) {
+      modal.style.display = "block";
+      
+    }
+  }
+  
+  Hide() {
+    var modal = document.getElementById("myModal");
+    if (modal != null) {
+      modal.style.display = "none";
+    }
+  }
 }

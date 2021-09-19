@@ -120,13 +120,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     color: #222;
       }
 
-.infoBig{
-max-width: 400px;
-} 
-
-.price{
-    min-width: 80px;
-}
 
 .centr{
     display: flex;
@@ -138,4 +131,161 @@ max-width: 400px;
 transition: 0.5s;
 color: rgb(168, 168, 168);
 text-decoration: underline;
+}
+
+
+.Videos_v{
+    width: 300px;
+    height: 175px;
+    background-color: #f4425c;
+}
+
+.min-weight{
+    min-width: 75px;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    padding-top: 5%; /* Location of the box */
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    max-height: 100% !important;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: rgba(31, 31, 31, 0.9);
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;   
+  }
+
+  .m-i-h{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: rgb(255, 255, 255);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(141, 141, 141);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+
+  .modal-video{
+      width: 50%;
+      height: 450px;
+      margin-top: 1%;
+      margin-bottom: 2%;
+      background-color: #f4425c;
+  }
+
+  .modal-comments{
+      width: 42%;
+      height: 450px;
+      margin-top: 1%;
+      margin-bottom: 2%;
+      background-color: #383838;
+
+      overflow-x: hidden;
+      overflow-y: scroll;
+  }
+
+  .modal-b{
+    width: 3%;
+    height: 450px;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    background: linear-gradient(to right, rgba(31, 31, 31, 0.9), #383838);
+}
+
+.modal-hide{
+    height: 1%;
+    width: 100%;
+    padding-right: 2%;
+}
+
+.comment-div{
+    width: 100%;
+    margin: auto;
+    margin-top: 15px;
+    
+    height: 80px;
+    background-color: transparent
+}
+
+.text-comment{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.75);
+
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.author-ct{
+    font-size: 18px;    
+    color: whitesmoke;
+    letter-spacing: 1px;
+
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.c-hp{
+    height: 80px;
+    width: 13%;
+
+    background-color: #f4425c;
+    border-radius: 100%;
+    margin-right: 10px;
+
+    display: inline;
+    float: left;
+}
+
+.c-au{
+    height: 80px;
+    width: 20%;
+    float: left;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-com{    
+    height: 80px;
+    width: 52%;    
+    margin-left: 3%;
+
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-tr{
+    height: 80px;
+    width: 10%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
