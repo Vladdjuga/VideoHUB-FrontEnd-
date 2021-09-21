@@ -22,6 +22,10 @@
     background-position: center;
     background-repeat: no-repeat;
     height: 15vh;
+    /* border: 1px solid rgba(230, 119, 245, 0.25); */
+    border: 4px solid transparent;
+    border-image: linear-gradient(to left top,#ff2ab83a 10%,  transparent 30%, transparent 70%, #ff2ab83a 90%);
+    border-image-slice: 1;
 }
 .vids{
     transition: 0.5s;

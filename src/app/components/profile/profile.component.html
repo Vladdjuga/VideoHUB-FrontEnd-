@@ -132,31 +132,31 @@
           <div class="about_part bg-dark">
             <div class="half">
               <span class="description_p">Name:</span>
-              <span class="description_main">User_Name_Here</span>
+              <span class="description_main">{{profile.name}}</span>
             </div>
             <div class="half">
               <span class="description_p">Birthday:</span>
-              <span class="description_main">18.05.2004</span>
+              <span class="description_main">{{normalTime(profile.birth)}}</span>
             </div>
             <div class="half">
               <span class="description_p">Phone:</span>
-              <span class="description_main">(+380)-66-330-663</span>
+              <span class="description_main">{{profile.phone}}</span>
             </div>
             <div class="half">
               <span class="description_p">Gender:</span>
-              <span class="description_main">Im_Not_Woman</span>
+              <span class="description_main">{{profile.gender}}</span>
             </div>
           </div>
 
           <div class="about_part bg-dark">
             <div class="half">
               <span class="description_p">Count videos:</span>
-              <span class="description_main">333 <span class="material-icons">movie</span>
+              <span class="description_main">{{videos.length}} <span class="material-icons">movie</span>
               </span>
             </div>
             <div class="half">
               <span class="description_p">Count likes:</span>
-              <span class="description_main"><span class="description_main">1224 <span class="material-icons">favorite</span>
+              <span class="description_main"><span class="description_main">{{profile.roles[0]}} <span class="material-icons">favorite</span>
               </span>
             </span>
             </div>

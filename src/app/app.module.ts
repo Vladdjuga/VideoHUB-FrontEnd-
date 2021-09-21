@@ -68,6 +68,7 @@ import { SearchResultComponent } from './components/search-result/search-result.
 import { LoadVideoComponent } from './components/load-video/load-video.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { IsAdminGuard } from './guards/IsAdminGuard';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -181,7 +182,8 @@ const customNotifierOptions: NotifierOptions = {
       multi: true
     },
     IsLoggedGuard,
-    IsntLoggedGuard
+    IsntLoggedGuard,
+    IsAdminGuard
   ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]

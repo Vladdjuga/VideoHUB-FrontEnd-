@@ -21,8 +21,13 @@ export class ProfileComponent implements OnInit {
       const decodedJwtJsonData = window.atob(jwtData);
       const decodedJwtData = JSON.parse(decodedJwtJsonData);
       if (decodedJwtData.sub != null) {
+        console.log(decodedJwtData);
         this.profile.name=decodedJwtData.name;
         this.profile.icon=decodedJwtData.icon;
+        this.profile.birth=decodedJwtData.birth;
+        this.profile.gender=decodedJwtData.gender;
+        this.profile.phone=decodedJwtData.phone;
+        this.profile.roles=JSON.parse(decodedJwtData.roles);
       }
     }
   }

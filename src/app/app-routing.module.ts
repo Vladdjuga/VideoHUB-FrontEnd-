@@ -11,19 +11,20 @@ import { RegisterComponent } from './components/register/register.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
+import { IsAdminGuard } from './guards/IsAdminGuard';
 import { IsLoggedGuard } from './guards/islogged';
 import { IsntLoggedGuard } from './guards/isntlogged';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent},
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent,canActivate:[IsLoggedGuard] },
   { path: 'users-list', component: UsersListComponent ,canActivate:[IsLoggedGuard]},
   { path: 'login', component: LoginComponent,canActivate:[IsntLoggedGuard]},
   { path: 'register', component: RegisterComponent,canActivate:[IsntLoggedGuard]},
   { path: 'video/:id', component: VideoPageComponent},
   { path: 'profile-edit', component: ProfileEditComponent ,canActivate:[IsLoggedGuard]},
-  { path: 'load-video', component: LoadVideoComponent},
-  { path: 'admin', component: AdminComponent},
+  { path: 'load-video', component: LoadVideoComponent,canActivate:[IsLoggedGuard]},
+  { path: 'admin', component: AdminComponent,canActivate:[IsAdminGuard]},
   { path: 'search/:search', component: SearchResultComponent},
   { path: '**', component: ErrorPageComponent}
 ];
