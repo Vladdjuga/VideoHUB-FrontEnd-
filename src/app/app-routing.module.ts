@@ -9,6 +9,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { SomeuserProfileComponent } from './components/someuser-profile/someuser-profile.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { IsAdminGuard } from './guards/IsAdminGuard';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'profile-edit', component: ProfileEditComponent ,canActivate:[IsLoggedGuard]},
   { path: 'load-video', component: LoadVideoComponent,canActivate:[IsLoggedGuard]},
   { path: 'admin', component: AdminComponent,canActivate:[IsAdminGuard]},
+  { path: 'users/:id', component: SomeuserProfileComponent},
   { path: 'search/:search', component: SearchResultComponent},
   { path: '**', component: ErrorPageComponent}
 ];

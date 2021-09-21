@@ -69,6 +69,7 @@ import { LoadVideoComponent } from './components/load-video/load-video.component
 import { AdminComponent } from './components/admin/admin.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { IsAdminGuard } from './guards/IsAdminGuard';
+import { SomeuserProfileComponent } from './components/someuser-profile/someuser-profile.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -114,6 +115,7 @@ const customNotifierOptions: NotifierOptions = {
 @NgModule({
   declarations: [
     AppComponent,
+    SomeuserProfileComponent,
     ProfileComponent,
     UsersListComponent,
     LoginComponent,

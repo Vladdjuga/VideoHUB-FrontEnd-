@@ -1,0 +1,21 @@
+.profile-short-info{
+    min-height: 80px;
+    width: 100%;
+}
+
+.left-part{
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+.right-part{
+    width: 60%;
+    height: 100%;
+    float: left;
+
+    padding-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
