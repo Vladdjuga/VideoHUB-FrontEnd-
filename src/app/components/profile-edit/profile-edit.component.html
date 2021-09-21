@@ -28,7 +28,7 @@
                                                                 <div style="margin-top: 2.5%;" class="marFirst row">
                                                                     <div class="form-group mb-2">
                                                                         <label for="nameInp">Name</label>
-                                                                        <input type="text" [(ngModel)]="signup.name" name="name" class="form-control bg-dark text-light" id="nameInp"
+                                                                        <input type="text" [(ngModel)]="signup.name" name="name" class="form-control bg-dark text-light b-n" id="nameInp"
                                                                           placeholder="Enter name">
                                                                       </div>
                                                                 </div>
@@ -36,7 +36,7 @@
                                                                     <div class="form-group mb-2">
                                                                         <label for="passInp">Phone</label>
                                                                         <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-                                                                        [(ngModel)]="signup.phone" name="phone" class="form-control bg-dark text-light" id="passInp"
+                                                                        [(ngModel)]="signup.phone" name="phone" class="form-control bg-dark text-light b-n" id="passInp"
                                                                           placeholder="Enter your phone number" maxlength="10">
                                                                       </div>
                                                                 </div>
@@ -44,12 +44,12 @@
                                                                     <div class="form-group mb-2">
                                                                         <label for="passInp">Birthday date</label>
                                                                         <input type="date" [(ngModel)]="signup.birthday" min="1920-01-01"  max="2007-01-01" name="birthday"
-                                                                          class="form-control bg-dark text-light" id="passInp" placeholder="Enter your birthday date">
+                                                                          class="form-control bg-dark text-light b-n" id="passInp" placeholder="Enter your birthday date">
                                                                       </div>
                                                                 </div>
-                                                                <div class="marFirst row">
+                                                                <div class="marFirst row  pl-2 pr-2">
                                                                     <label for="passInp">Gender</label>
-                                                                    <select id="passInp" [(ngModel)]="signup.gender" name="gender" class="form-select bg-dark text-light"
+                                                                    <select id="passInp" [(ngModel)]="signup.gender" name="gender" class="form-select bg-dark text-light b-n"
                                                                       aria-label="Select your gender...">
                                                                         <option value="male">Male</option>
                                                                         <option value="female">Female</option>
@@ -60,7 +60,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="changes">
-                                                    <button type="button" class="btn btn-success">Save changes</button>
+                                                    <div class=""><a href=""
+                                                        class="btn-bl btn btn-sm animated-button victoria-one">Save changes</a></div>
                                                 </div>
                                             </div>
                                         </div>

@@ -517,7 +517,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .timeline-header {
     padding-bottom: 10px;
-    border-bottom: 1px solid #e2e7eb;
+    border-bottom: 1px solid rgba(121,9,70,1) ;
     line-height: 30px
 }
 
@@ -784,7 +784,6 @@ img.rounded{
     height: 250px;
 
     border-radius: 15px;
-    background-image: url(https://swall.teahub.io/photos/small/43-435365_black-abstract-background-wallpaper-art-luxury-dark-.jpg);
     background-size: cover;
 }
 
